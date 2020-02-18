@@ -1,0 +1,126 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Fonts/GochiHand-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Art/desk.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Paper.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=7]
+resource_name = "Popup"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 2, 0.138696 ),
+"update": 0,
+"values": [ Vector2( 0, 800 ), Vector2( 0, -40 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 595.853, 1216.78 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 703.063, 30.9232 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 43.9186, 3572.09 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 711.118, 29.3022 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 42.613, 3192.07 )
+
+[node name="Game" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 633.982, 359.996 )
+rotation = 0.174533
+scale = Vector2( 1, 1 )
+rotating = true
+current = true
+
+[node name="desk" type="Sprite" parent="."]
+position = Vector2( 577.571, 395.858 )
+texture = ExtResource( 2 )
+
+[node name="Paper" type="KinematicBody2D" parent="."]
+position = Vector2( 0, 800 )
+script = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Paper"]
+anims/Popup = SubResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paper"]
+position = Vector2( 639.731, 1353.98 )
+shape = SubResource( 2 )
+
+[node name="Paper" type="ColorRect" parent="Paper"]
+margin_left = 274.0
+margin_top = 182.0
+margin_right = 1015.0
+margin_bottom = 2519.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Shadow" type="ColorRect" parent="Paper/Paper"]
+show_behind_parent = true
+margin_left = -16.0
+margin_top = 16.0
+margin_right = 720.0
+margin_bottom = 2353.0
+color = Color( 0.243137, 0.243137, 0.243137, 0.407843 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="1" type="Label" parent="Paper"]
+margin_left = 294.0
+margin_top = 201.0
+margin_right = 995.0
+margin_bottom = 648.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+text = "02/17/2020
+American History
+Historical Event Essay
+
+    The year: 1983. The place: New Egypt, New Jersey, USA."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Boundary" type="Node2D" parent="."]
+
+[node name="Top" type="StaticBody2D" parent="Boundary"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/Top"]
+position = Vector2( 645.208, -2147.47 )
+shape = SubResource( 3 )
+
+[node name="Left" type="StaticBody2D" parent="Boundary"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/Left"]
+position = Vector2( -43.9521, 61.5331 )
+shape = SubResource( 4 )
+
+[node name="Bottom" type="StaticBody2D" parent="Boundary"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/Bottom"]
+position = Vector2( 614.334, 3670.15 )
+shape = SubResource( 5 )
+
+[node name="Right" type="StaticBody2D" parent="Boundary"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/Right"]
+position = Vector2( 1328.9, 372.806 )
+shape = SubResource( 6 )
