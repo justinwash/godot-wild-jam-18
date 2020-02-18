@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Fonts/GochiHand-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Art/desk.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Paper.gd" type="Script" id=3]
 [ext_resource path="res://Art/mug.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Section.gd" type="Script" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Popup"
@@ -82,7 +83,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="1" type="Label" parent="Paper"]
+[node name="Sections" type="Node2D" parent="Paper"]
+
+[node name="1" type="Label" parent="Paper/Sections"]
 margin_left = 294.0
 margin_top = 201.0
 margin_right = 995.0
@@ -95,9 +98,14 @@ Historical Event Essay
 
     The year: 1983. The place: New Egypt, New Jersey, USA."
 autowrap = true
+percent_visible = 0.5
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+active = true
+delay = 1.856
+slow = 0.4
 
 [node name="Boundary" type="Node2D" parent="."]
 
