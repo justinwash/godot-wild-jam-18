@@ -1,10 +1,12 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Fonts/GochiHand-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Art/desk.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Paper.gd" type="Script" id=3]
 [ext_resource path="res://Art/mug.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/Section.gd" type="Script" id=5]
+[ext_resource path="res://Fonts/Lacquer-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Scripts/Choice.gd" type="Script" id=7]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Popup"
@@ -25,8 +27,12 @@ tracks/0/keys = {
 extents = Vector2( 595.853, 1216.78 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 32
+size = 30
 font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 20
+font_data = ExtResource( 6 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 703.063, 30.9232 )
@@ -89,23 +95,61 @@ __meta__ = {
 margin_left = 294.0
 margin_top = 201.0
 margin_right = 995.0
-margin_bottom = 648.0
+margin_bottom = 576.0
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
 text = "02/17/2020
 American History
 Historical Event Essay
 
-    The year: 1983. The place: New Egypt, New Jersey, USA."
+    The year was 1983. The place: New Egypt, New Jersey, USA. Members  of the local gang \"Is 2 Real\" staged a revolt. They wanted out of the game, but the leader of the gang, Phar Out, wasn't about to let them walk unharmed. "
 autowrap = true
-percent_visible = 0.5
+percent_visible = 0.202703
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 active = true
 delay = 1.856
+slow = 0.3
+
+[node name="2" type="Label" parent="Paper/Sections"]
+margin_left = 293.272
+margin_top = 566.919
+margin_right = 994.272
+margin_bottom = 731.919
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+text = "    Among the dissenters was a man in possession of a cane that held immense power. Using this power to convince Phar Out to let his bretheren go seemed his only choice, so on the first day, he..."
+autowrap = true
+percent_visible = 0.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+active = true
+delay = 20.0
 slow = 0.4
+
+[node name="Choices" type="Node2D" parent="Paper"]
+
+[node name="Day 1" type="Node2D" parent="Paper/Choices"]
+visible = false
+script = ExtResource( 7 )
+
+[node name="1" type="Label" parent="Paper/Choices/Day 1"]
+margin_left = 287.0
+margin_top = 728.85
+margin_right = 988.0
+margin_bottom = 787.85
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0.768627, 0.4, 0, 1 )
+text = " struck the creek with his cane, turning once-clear water to Tang(tm) with too much of the powder stuff in it."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Boundary" type="Node2D" parent="."]
 
