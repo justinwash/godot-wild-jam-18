@@ -6,7 +6,7 @@ export var all_choices = [
 	"summoned from the Creek of Tang(tm) a plague of Pogo Ball(tm)s, to annoy endlessly all the people of New Egypt",
 	"Lice",
 	"Wild animals/flies",
-	"Every Schwinn and Gremlin in town falls apart",
+	"Every Schwinn in town falls apart",
 	"Everyone gets super bad acne?",
 	"Thunderstruck by AC/DC plays on repeat indefinitely (oh god no)",
 	"Beatrix Potter emerges from all the copies of her books to devour carrots and other foodstuffs",
