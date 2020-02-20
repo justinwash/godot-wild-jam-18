@@ -30,20 +30,20 @@ extents = Vector2( 595.853, 1216.78 )
 size = 30
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=4]
 size = 20
 font_data = ExtResource( 6 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 703.063, 30.9232 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 43.9186, 3572.09 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 711.118, 29.3022 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 42.613, 3192.07 )
 
 [node name="Game" type="Node2D"]
@@ -133,18 +133,98 @@ slow = 0.4
 
 [node name="Choices" type="Node2D" parent="Paper"]
 
+[node name="AllChoices" type="Node2D" parent="Paper/Choices"]
+
+[node name="Day1" type="Node2D" parent="Paper/Choices/AllChoices"]
+__meta__ = {
+"_editor_description_": "struck the creek with his cane, turning once-clear water into Tang(tm) with too much of the powder stuff in it."
+}
+
+[node name="Day2" type="Node2D" parent="Paper/Choices/AllChoices"]
+__meta__ = {
+"_editor_description_": "summoned from the Creek of Tang(tm) a plague of Pogo Ball(tm)s, to annoy endlessly all the people of New Egypt."
+}
+
+[node name="Day3" type="Node2D" parent="Paper/Choices/AllChoices"]
+__meta__ = {
+"_editor_description_": "Lice"
+}
+
+[node name="Day4" type="Node2D" parent="Paper/Choices/AllChoices"]
+__meta__ = {
+"_editor_description_": "Wild Animals"
+}
+
+[node name="Day5" type="Node2D" parent="Paper/Choices/AllChoices"]
+__meta__ = {
+"_editor_description_": "Every Schwinn in town falls apart"
+}
+
+[node name="Day6" type="Node2D" parent="Paper/Choices/AllChoices"]
+__meta__ = {
+"_editor_description_": "Everyone gets super bad acne?"
+}
+
+[node name="Day7" type="Node2D" parent="Paper/Choices/AllChoices"]
+__meta__ = {
+"_editor_description_": "Thunderstruck by AC/DC plays on repeat indefinitely (oh god no)"
+}
+
+[node name="Day8" type="Node2D" parent="Paper/Choices/AllChoices"]
+__meta__ = {
+"_editor_description_": "Beatrix Potter emerges from all the copies of her books to devour carrots and other foodstuffs"
+}
+
+[node name="Day9" type="Node2D" parent="Paper/Choices/AllChoices"]
+__meta__ = {
+"_editor_description_": "A Led Zeppelin large enough to blot out the sun"
+}
+
+[node name="Day10" type="Node2D" parent="Paper/Choices/AllChoices"]
+__meta__ = {
+"_editor_description_": "Death of the first pet rock"
+}
+
 [node name="Day 1" type="Node2D" parent="Paper/Choices"]
-visible = false
 script = ExtResource( 7 )
+correct_choice = NodePath("../AllChoices/Day1")
 
 [node name="1" type="Label" parent="Paper/Choices/Day 1"]
 margin_left = 287.0
 margin_top = 728.85
 margin_right = 988.0
 margin_bottom = 787.85
-custom_fonts/font = SubResource( 8 )
-custom_colors/font_color = Color( 0.768627, 0.4, 0, 1 )
-text = " struck the creek with his cane, turning once-clear water to Tang(tm) with too much of the powder stuff in it."
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0.580392, 1, 1 )
+text = "answer 1"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2" type="Label" parent="Paper/Choices/Day 1"]
+margin_left = 288.108
+margin_top = 795.332
+margin_right = 989.108
+margin_bottom = 854.332
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0.580392, 1, 1 )
+text = "answer 2"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="3" type="Label" parent="Paper/Choices/Day 1"]
+margin_left = 290.324
+margin_top = 864.03
+margin_right = 991.324
+margin_bottom = 923.03
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0.580392, 1, 1 )
+text = "answer 3"
 align = 1
 autowrap = true
 __meta__ = {
@@ -157,25 +237,25 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/Top"]
 position = Vector2( 645.208, -2147.47 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Left" type="StaticBody2D" parent="Boundary"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/Left"]
 position = Vector2( -43.9521, 61.5331 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="Bottom" type="StaticBody2D" parent="Boundary"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/Bottom"]
 position = Vector2( 614.334, 3670.15 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="Right" type="StaticBody2D" parent="Boundary"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/Right"]
 position = Vector2( 1328.9, 372.806 )
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 
 [node name="mug" type="Sprite" parent="."]
 position = Vector2( 1267.86, 255.254 )

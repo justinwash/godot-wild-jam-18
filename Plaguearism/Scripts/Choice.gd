@@ -1,38 +1,43 @@
 extends Node2D
 
 export var delay = 41
-export var all_choices = [
-	"struck the creek with his cane, turning once-clear water into Tang(tm) with too much of the powder stuff in it.",
-	"summoned from the Creek of Tang(tm) a plague of Pogo Ball(tm)s, to annoy endlessly all the people of New Egypt",
-	"Lice",
-	"Wild animals/flies",
-	"Every Schwinn in town falls apart",
-	"Everyone gets super bad acne?",
-	"Thunderstruck by AC/DC plays on repeat indefinitely (oh god no)",
-	"Beatrix Potter emerges from all the copies of her books to devour carrots and other foodstuffs",
-	"A Led Zeppelin large enough to blot out the sun",
-	"Death of the first pet rock"
-]
-export(array, all_choices) var correct_choice
-export var randomized_choices = [correct_choice]
 
-var labels = { null, null, null }
+onready var all_choices = [
+	get_node("../AllChoices/Day1").editor_description,
+	get_node("../AllChoices/Day2").editor_description,
+	get_node("../AllChoices/Day3").editor_description,
+	get_node("../AllChoices/Day4").editor_description,
+	get_node("../AllChoices/Day5").editor_description,
+	get_node("../AllChoices/Day6").editor_description,
+	get_node("../AllChoices/Day7").editor_description,
+	get_node("../AllChoices/Day8").editor_description,
+	get_node("../AllChoices/Day9").editor_description,
+	get_node("../AllChoices/Day10").editor_description,
+]
+
+export(NodePath) var correct_choice
+onready var correct_choice_text = get_node(correct_choice).editor_description
+
+onready var randomized_choices = [correct_choice_text]
+
+var labels = []
 var highlighted_label
 var t = 0
 
 func _ready():
-	labels = { $1, $2, $3 }
+	randomize()
+	labels = [ $'1', $'2', $'3' ]
 	var all_choices_shuffled = all_choices
 	all_choices_shuffled.shuffle()
 	
-	for(i, 0..10):
-		if (all_choices_shuffled[i] != correct_choice && len(randomized_choices) < 3):
-			randomized_choices.add(all_choices_shuffled[i])
+	for i in range(0, 10):
+		if (all_choices_shuffled[i] != correct_choice_text && len(randomized_choices) < 3):
+			randomized_choices.push_back(all_choices_shuffled[i])
 	
 	randomized_choices.shuffle()
 	
-	for (i, 0..3):
-		labels.i.text = randomized_choices[i]
+	for j in range(0, 3):
+		labels[j].text = randomized_choices[j]
 		
 func _physics_process(delta):
 	if t > delay*60:
