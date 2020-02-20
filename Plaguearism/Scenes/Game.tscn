@@ -223,7 +223,6 @@ __meta__ = {
 }
 
 [node name="Day 1" type="Node2D" parent="Paper/Choices"]
-visible = false
 script = ExtResource( 7 )
 correct_choice = NodePath("../AllChoices/Day1")
 
