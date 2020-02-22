@@ -1,13 +1,11 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Fonts/GochiHand-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Art/desk.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Paper.gd" type="Script" id=3]
 [ext_resource path="res://Art/mug.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/Section.gd" type="Script" id=5]
-[ext_resource path="res://Fonts/Lacquer-Regular.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://Scripts/Choice.gd" type="Script" id=7]
-[ext_resource path="res://Scripts/Option.gd" type="Script" id=8]
+[ext_resource path="res://Scenes/Day.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Popup"
@@ -30,10 +28,6 @@ extents = Vector2( 595.853, 1216.78 )
 [sub_resource type="DynamicFont" id=3]
 size = 30
 font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=4]
-size = 20
-font_data = ExtResource( 6 )
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 703.063, 30.9232 )
@@ -222,209 +216,34 @@ __meta__ = {
 "_editor_description_": "Death of the first pet rock"
 }
 
-[node name="Day 1" type="Node2D" parent="Paper/Choices"]
-script = ExtResource( 7 )
-correct_choice = NodePath("../AllChoices/Day1")
+[node name="Day 1" parent="Paper/Choices" instance=ExtResource( 6 )]
 
-[node name="1" type="Label" parent="Paper/Choices/Day 1"]
-margin_left = 287.0
-margin_top = 728.85
-margin_right = 988.0
-margin_bottom = 787.85
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0, 0.580392, 1, 1 )
-text = "answer 1"
-align = 1
-autowrap = true
-script = ExtResource( 8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ClickArea" type="TextureButton" parent="Paper/Choices/Day 1/1"]
-margin_right = 711.0
-margin_bottom = 60.0
-mouse_default_cursor_shape = 2
-
-[node name="2" type="Label" parent="Paper/Choices/Day 1"]
-margin_left = 290.324
-margin_top = 790.9
-margin_right = 991.324
-margin_bottom = 849.9
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0, 0.580392, 1, 1 )
-text = "answer 2"
-align = 1
-autowrap = true
-script = ExtResource( 8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ClickArea" type="TextureButton" parent="Paper/Choices/Day 1/2"]
-margin_right = 713.0
-margin_bottom = 54.0
-mouse_default_cursor_shape = 2
-
-[node name="3" type="Label" parent="Paper/Choices/Day 1"]
-margin_left = 290.324
-margin_top = 857.382
-margin_right = 991.324
-margin_bottom = 916.382
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0, 0.580392, 1, 1 )
-text = "answer 3"
-align = 1
-autowrap = true
-script = ExtResource( 8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ClickArea" type="TextureButton" parent="Paper/Choices/Day 1/3"]
-margin_left = -1.10803
-margin_top = -3.3241
-margin_right = 706.892
-margin_bottom = 56.6759
-mouse_default_cursor_shape = 2
-
-[node name="Day 2" type="Node2D" parent="Paper/Choices"]
-visible = false
-position = Vector2( 3.09082, 275.088 )
-script = ExtResource( 7 )
-delay = 45
+[node name="Day 2" parent="Paper/Choices" instance=ExtResource( 6 )]
 correct_choice = NodePath("../AllChoices/Day2")
 
-[node name="1" type="Label" parent="Paper/Choices/Day 2"]
-margin_left = 287.0
-margin_top = 728.85
-margin_right = 988.0
-margin_bottom = 787.85
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0, 0.580392, 1, 1 )
-text = "answer 1"
-align = 1
-autowrap = true
-script = ExtResource( 8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ClickArea" type="TextureButton" parent="Paper/Choices/Day 2/1"]
-margin_right = 711.0
-margin_bottom = 60.0
-mouse_default_cursor_shape = 2
-
-[node name="2" type="Label" parent="Paper/Choices/Day 2"]
-margin_left = 290.324
-margin_top = 790.9
-margin_right = 991.324
-margin_bottom = 849.9
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0, 0.580392, 1, 1 )
-text = "answer 2"
-align = 1
-autowrap = true
-script = ExtResource( 8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ClickArea" type="TextureButton" parent="Paper/Choices/Day 2/2"]
-margin_right = 713.0
-margin_bottom = 54.0
-mouse_default_cursor_shape = 2
-
-[node name="3" type="Label" parent="Paper/Choices/Day 2"]
-margin_left = 290.324
-margin_top = 857.382
-margin_right = 991.324
-margin_bottom = 916.382
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0, 0.580392, 1, 1 )
-text = "answer 3"
-align = 1
-autowrap = true
-script = ExtResource( 8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ClickArea" type="TextureButton" parent="Paper/Choices/Day 2/3"]
-margin_left = -1.10803
-margin_top = -3.3241
-margin_right = 706.892
-margin_bottom = 56.6759
-mouse_default_cursor_shape = 2
-
-[node name="Day 3" type="Node2D" parent="Paper/Choices"]
-visible = false
-position = Vector2( 3.09082, 537.812 )
-script = ExtResource( 7 )
-delay = 50
+[node name="Day 3" parent="Paper/Choices" instance=ExtResource( 6 )]
 correct_choice = NodePath("../AllChoices/Day3")
 
-[node name="1" type="Label" parent="Paper/Choices/Day 3"]
-margin_left = 287.0
-margin_top = 728.85
-margin_right = 988.0
-margin_bottom = 787.85
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0, 0.580392, 1, 1 )
-text = "answer 1"
-align = 1
-autowrap = true
-script = ExtResource( 8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Day 4" parent="Paper/Choices" instance=ExtResource( 6 )]
+correct_choice = NodePath("../AllChoices/Day4")
 
-[node name="ClickArea" type="TextureButton" parent="Paper/Choices/Day 3/1"]
-margin_right = 711.0
-margin_bottom = 60.0
-mouse_default_cursor_shape = 2
+[node name="Day 5" parent="Paper/Choices" instance=ExtResource( 6 )]
+correct_choice = NodePath("../AllChoices/Day5")
 
-[node name="2" type="Label" parent="Paper/Choices/Day 3"]
-margin_left = 290.324
-margin_top = 790.9
-margin_right = 991.324
-margin_bottom = 849.9
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0, 0.580392, 1, 1 )
-text = "answer 2"
-align = 1
-autowrap = true
-script = ExtResource( 8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Day 6" parent="Paper/Choices" instance=ExtResource( 6 )]
+correct_choice = NodePath("../AllChoices/Day6")
 
-[node name="ClickArea" type="TextureButton" parent="Paper/Choices/Day 3/2"]
-margin_right = 713.0
-margin_bottom = 54.0
-mouse_default_cursor_shape = 2
+[node name="Day 7" parent="Paper/Choices" instance=ExtResource( 6 )]
+correct_choice = NodePath("../AllChoices/Day7")
 
-[node name="3" type="Label" parent="Paper/Choices/Day 3"]
-margin_left = 290.324
-margin_top = 857.382
-margin_right = 991.324
-margin_bottom = 916.382
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0, 0.580392, 1, 1 )
-text = "answer 3"
-align = 1
-autowrap = true
-script = ExtResource( 8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Day 8" parent="Paper/Choices" instance=ExtResource( 6 )]
+correct_choice = NodePath("../AllChoices/Day8")
 
-[node name="ClickArea" type="TextureButton" parent="Paper/Choices/Day 3/3"]
-margin_left = -1.10803
-margin_top = -3.3241
-margin_right = 706.892
-margin_bottom = 56.6759
-mouse_default_cursor_shape = 2
+[node name="Day 9" parent="Paper/Choices" instance=ExtResource( 6 )]
+correct_choice = NodePath("../AllChoices/Day9")
+
+[node name="Day 10" parent="Paper/Choices" instance=ExtResource( 6 )]
+correct_choice = NodePath("../AllChoices/Day10")
 
 [node name="Boundary" type="Node2D" parent="."]
 

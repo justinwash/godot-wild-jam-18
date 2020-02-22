@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Fonts/Lacquer-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/Choice.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Option.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 1 )
+
+[node name="Day 1" type="Node2D"]
+visible = false
+script = ExtResource( 2 )
+correct_choice = NodePath("../AllChoices/Day1")
+
+[node name="1" type="Label" parent="."]
+margin_left = 287.0
+margin_top = 728.85
+margin_right = 988.0
+margin_bottom = 787.85
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0.580392, 1, 1 )
+text = "answer 1"
+align = 1
+autowrap = true
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ClickArea" type="TextureButton" parent="1"]
+margin_right = 711.0
+margin_bottom = 60.0
+mouse_default_cursor_shape = 2
+
+[node name="2" type="Label" parent="."]
+margin_left = 290.324
+margin_top = 790.9
+margin_right = 991.324
+margin_bottom = 849.9
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0.580392, 1, 1 )
+text = "answer 2"
+align = 1
+autowrap = true
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ClickArea" type="TextureButton" parent="2"]
+margin_right = 713.0
+margin_bottom = 54.0
+mouse_default_cursor_shape = 2
+
+[node name="3" type="Label" parent="."]
+margin_left = 290.324
+margin_top = 857.382
+margin_right = 991.324
+margin_bottom = 916.382
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0.580392, 1, 1 )
+text = "answer 3"
+align = 1
+autowrap = true
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ClickArea" type="TextureButton" parent="3"]
+margin_left = -1.10803
+margin_top = -3.3241
+margin_right = 706.892
+margin_bottom = 56.6759
+mouse_default_cursor_shape = 2
