@@ -1,6 +1,8 @@
 extends Node2D
 
+export var active = false
 export var delay = 41
+export var option_clicked = false
 
 onready var all_choices = [
 	get_node("../AllChoices/Day1").editor_description,
@@ -19,6 +21,12 @@ export(NodePath) var correct_choice
 onready var correct_choice_text = get_node(correct_choice).editor_description
 
 onready var randomized_choices = [correct_choice_text]
+
+export(NodePath) var next_day_path
+onready var next_day = get_node(next_day_path)
+
+export(NodePath) var effect_path
+onready var effect = get_node(effect_path)
 
 var labels = []
 var highlighted_label
@@ -40,6 +48,6 @@ func _ready():
 		labels[j].text = randomized_choices[j]
 		
 func _physics_process(delta):
-	if t > delay*60:
+	if active && t > delay*60:
 		self.visible = true
 	t += 1

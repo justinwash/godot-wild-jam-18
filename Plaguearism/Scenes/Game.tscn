@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Fonts/GochiHand-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Art/desk.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Art/mug.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/Section.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/Day.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Effects/Day1Effect.gd" type="Script" id=7]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Popup"
@@ -23,23 +24,69 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 595.853, 1216.78 )
+extents = Vector2( 595.853, 2254.56 )
+
+[sub_resource type="Gradient" id=8]
+offsets = PoolRealArray( 0.0877863, 1 )
+
+[sub_resource type="GradientTexture" id=9]
+gradient = SubResource( 8 )
+
+[sub_resource type="Animation" id=10]
+resource_name = "Flow"
+length = 60.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Light2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 59.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 634.599, 1509.08 ), Vector2( 617.987, 3806.77 ), Vector2( 651.283, 7102.48 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Light2D:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 59.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -90.1041, -90.1041, -90.1041 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Light2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 59.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 4.20105, 1445.13 ), Vector2( 3.5352, 1445.13 ), Vector2( 2.50815, 1445.13 ) ]
+}
 
 [sub_resource type="DynamicFont" id=3]
 size = 30
 font_data = ExtResource( 1 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 703.063, 30.9232 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 43.9186, 3572.09 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 711.118, 29.3022 )
 
-[sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 42.613, 3192.07 )
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 42.613, 3695.15 )
 
 [node name="Game" type="Node2D"]
 
@@ -61,14 +108,14 @@ script = ExtResource( 3 )
 anims/Popup = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paper"]
-position = Vector2( 639.731, 1353.98 )
+position = Vector2( 639.731, 2353.12 )
 shape = SubResource( 2 )
 
 [node name="Paper" type="ColorRect" parent="Paper"]
 margin_left = 274.0
 margin_top = 182.0
 margin_right = 1015.0
-margin_bottom = 2519.0
+margin_bottom = 4527.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -78,15 +125,42 @@ show_behind_parent = true
 margin_left = -16.0
 margin_top = 16.0
 margin_right = 720.0
-margin_bottom = 2353.0
+margin_bottom = 4372.0
 color = Color( 0.243137, 0.243137, 0.243137, 0.407843 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Effects" type="Node2D" parent="Paper/Paper"]
+position = Vector2( -274, -182 )
+
+[node name="Day1Effect" type="Node2D" parent="Paper/Paper/Effects"]
+script = ExtResource( 7 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Paper/Paper/Effects/Day1Effect"]
+light_mask = 2
+position = Vector2( -871.923, 913.642 )
+scale = Vector2( 0.468966, 1 )
+color = Color( 1, 0.631373, 0, 0.470588 )
+polygon = PoolVector2Array( 2715.74, -1048.73, 2654.01, -616.598, 2641.66, -73.3521, 2542.89, 741.517, 2789.82, 1494.65, 3024.41, 2371.26, 3086.14, 2914.5, 2925.63, 3408.36, 2542.89, 3902.22, 2258.92, 4457.82, 2147.8, 4964.02, 3913.35, 4926.98, 3876.31, 4322, 3580, 3778.76, 3703.46, 3198.47, 3938.05, 2371.26, 3580, 1618.12, 3456.53, 1111.91, 3580, 408.162, 3345.41, -233.857, 3357.76, -814.142, 3271.34, -1394.43, 3042.93, -3234.06 )
+
+[node name="Light2D" type="Light2D" parent="Paper/Paper/Effects/Day1Effect"]
+position = Vector2( 634.599, 1509.08 )
+rotation = -1.57261
+scale = Vector2( 4.20105, 1445.13 )
+texture = SubResource( 9 )
+color = Color( 0, 0, 0, 1 )
+energy = 0.0
+mode = 3
+range_item_cull_mask = 2
+shadow_item_cull_mask = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Paper/Paper/Effects/Day1Effect"]
+anims/Flow = SubResource( 10 )
+
 [node name="Sections" type="Node2D" parent="Paper"]
 
-[node name="1" type="Label" parent="Paper/Sections"]
+[node name="Intro" type="Label" parent="Paper/Sections"]
 margin_left = 294.0
 margin_top = 201.0
 margin_right = 995.0
@@ -105,17 +179,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 active = true
-delay = 1.856
-slow = 0.3
+delay = 2.0
+slow = 0.1
 
-[node name="2" type="Label" parent="Paper/Sections"]
+[node name="Day1" type="Label" parent="Paper/Sections"]
 margin_left = 293.272
 margin_top = 566.919
 margin_right = 994.272
 margin_bottom = 731.919
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
-text = "    Among the dissenters was a man in possession of a cane that held immense power. Using this power to convince Phar Out to let his bretheren go seemed his only choice, so on the first day, he..."
+text = "    Among the dissenters was a man named Mos Es, who possessed a cane that held immense power. Using this power to convince Phar Out to let his bretheren go seemed his only choice, so on the first day, he..."
 autowrap = true
 percent_visible = 0.0
 script = ExtResource( 5 )
@@ -123,44 +197,197 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 active = true
-delay = 20.0
-slow = 0.4
+delay = 9.0
+slow = 0.1
+challenge_path = NodePath("../../Choices/Day 1")
 
-[node name="3" type="Label" parent="Paper/Sections"]
-margin_left = 293.0
-margin_top = 947.0
-margin_right = 994.0
-margin_bottom = 995.0
+[node name="Day2" type="Label" parent="Paper/Sections"]
+margin_left = 291.64
+margin_top = 936.117
+margin_right = 992.64
+margin_bottom = 984.117
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
-text = "    Then on the second day..."
+text = "   Phar Out refused to back down, so on the 2nd day he..."
 autowrap = true
 percent_visible = 0.0
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-active = true
-delay = 42.0
-slow = 0.4
+slow = 0.1
+challenge_path = NodePath("../../Choices/Day 2")
 
-[node name="4" type="Label" parent="Paper/Sections"]
-margin_left = 283.728
-margin_top = 1197.36
-margin_right = 984.728
-margin_bottom = 1245.36
+[node name="Day3" type="Label" parent="Paper/Sections"]
+margin_left = 287.068
+margin_top = 1235.77
+margin_right = 988.068
+margin_bottom = 1312.77
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
-text = "    Then on the third day..."
+text = "    Par Out and his gang got pretty good at doing crime while bouncing on PogoBalls, so on the 3rd day he..."
 autowrap = true
 percent_visible = 0.0
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-active = true
-delay = 47.0
-slow = 0.4
+slow = 0.1
+challenge_path = NodePath("../../Choices/Day 3")
+
+[node name="Day4" type="Label" parent="Paper/Sections"]
+margin_left = 282.436
+margin_top = 1543.71
+margin_right = 983.436
+margin_bottom = 1591.71
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+text = "    Having stolen a pallette of medicinal shampoo, gang operations continued as normal, so on the 4th day he..."
+autowrap = true
+percent_visible = 0.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+slow = 0.1
+challenge_path = NodePath("../../Choices/Day 4")
+
+[node name="Day5" type="Label" parent="Paper/Sections"]
+margin_left = 288.154
+margin_top = 1845.01
+margin_right = 989.154
+margin_bottom = 1962.01
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+text = "    Mos Es decided that his actions so far had not been drastic enough, so to put a more serious damper on the gang's oprations, on the 5th day he..."
+autowrap = true
+percent_visible = 0.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+slow = 0.1
+challenge_path = NodePath("../../Choices/Day 5")
+
+[node name="Day6" type="Label" parent="Paper/Sections"]
+margin_left = 288.154
+margin_top = 2175.52
+margin_right = 989.154
+margin_bottom = 2223.52
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+text = "    As it turned out, public transit in New Egypt was more convenient than Mos Es had thought, so, feeling somewhat defeated, on the 6th day he..."
+autowrap = true
+percent_visible = 0.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+slow = 0.1
+challenge_path = NodePath("../../Choices/Day 6")
+
+[node name="Day7" type="Label" parent="Paper/Sections"]
+margin_left = 297.006
+margin_top = 2489.77
+margin_right = 998.006
+margin_bottom = 2537.77
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+text = "    The gang members and Phar Out himself were forced to adobt much more rigorous hygene standards, but still weren't backing down, so on the 7th day he..."
+autowrap = true
+percent_visible = 0.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+slow = 0.1
+challenge_path = NodePath("../../Choices/Day 7")
+
+[node name="Day8" type="Label" parent="Paper/Sections"]
+margin_left = 289.681
+margin_top = 2820.59
+margin_right = 990.681
+margin_bottom = 2937.59
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+text = "   That terrible terrible song annoyed the citizens of New Egypt enough to cause a signifant uptick in earplug sales. On the next day Mos Es..."
+autowrap = true
+percent_visible = 0.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+slow = 0.1
+challenge_path = NodePath("../../Choices/Day 8")
+
+[node name="Day9" type="Label" parent="Paper/Sections"]
+margin_left = 288.154
+margin_top = 3158.1
+margin_right = 989.154
+margin_bottom = 3206.1
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+text = "    The beast devoured and devoured and devoured, but carrots weren't exactly a staple of the gang's diet, so on the 9th day he..."
+autowrap = true
+percent_visible = 0.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+slow = 0.1
+challenge_path = NodePath("../../Choices/Day 9")
+
+[node name="Day10" type="Label" parent="Paper/Sections"]
+margin_left = 281.153
+margin_top = 3466.0
+margin_right = 982.153
+margin_bottom = 3514.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+text = "    New Egypt was plunged into darkness. This caused a massive strain on the gang members' cell-phone batteries, which they used to light their way through the long night. On the 10th day, Mos Es..."
+autowrap = true
+percent_visible = 0.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+slow = 0.1
+challenge_path = NodePath("../../Choices/Day 10")
+
+[node name="End" type="Label" parent="Paper/Sections"]
+margin_left = 288.0
+margin_top = 3831.0
+margin_right = 989.0
+margin_bottom = 4253.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+text = "    With the death of his own first-bought pet rock, Phar Out mourned.
+	
+	    He commanded the loyalists to at last let Mos Es and his people leave the gang unharmed. They returned to their families and led fulfilling, crime-free lives for the rest of their days."
+autowrap = true
+percent_visible = 0.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+slow = 0.1
+
+[node name="Thanks" type="Label" parent="Paper/Sections"]
+margin_left = 293.021
+margin_top = 4455.98
+margin_right = 994.021
+margin_bottom = 4508.98
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+text = "Thank you for playing!"
+align = 1
+autowrap = true
+percent_visible = 0.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+slow = 0.1
 
 [node name="Choices" type="Node2D" parent="Paper"]
 
@@ -178,99 +405,131 @@ __meta__ = {
 
 [node name="Day3" type="Node2D" parent="Paper/Choices/AllChoices"]
 __meta__ = {
-"_editor_description_": "Lice"
+"_editor_description_": "teleported the lice atop the head of every gradeschool child to the still-loyal members of Is 2 Real."
 }
 
 [node name="Day4" type="Node2D" parent="Paper/Choices/AllChoices"]
 __meta__ = {
-"_editor_description_": "Wild Animals"
+"_editor_description_": "unleashed a stampede of Gremlins(tm) into the town of New Egypt, terrorizing everyone in their path."
 }
 
 [node name="Day5" type="Node2D" parent="Paper/Choices/AllChoices"]
 __meta__ = {
-"_editor_description_": "Every Schwinn in town falls apart"
+"_editor_description_": "removed a random critical part from every bicycle and motor vehicle withtin the city limits."
 }
 
 [node name="Day6" type="Node2D" parent="Paper/Choices/AllChoices"]
 __meta__ = {
-"_editor_description_": "Everyone gets super bad acne?"
+"_editor_description_": "cursed the still-loyal gang members with cases of really really (like reeeaaaally) bad acne."
 }
 
 [node name="Day7" type="Node2D" parent="Paper/Choices/AllChoices"]
 __meta__ = {
-"_editor_description_": "Thunderstruck by AC/DC plays on repeat indefinitely (oh god no)"
+"_editor_description_": "commanded every radio station to play only AC/DC's Thunderstruck on repeat for three days."
 }
 
 [node name="Day8" type="Node2D" parent="Paper/Choices/AllChoices"]
 __meta__ = {
-"_editor_description_": "Beatrix Potter emerges from all the copies of her books to devour carrots and other foodstuffs"
+"_editor_description_": "summoned the mythical beast Beatrix Potter from all the copies of her books to devour the town's carrot supply."
 }
 
 [node name="Day9" type="Node2D" parent="Paper/Choices/AllChoices"]
 __meta__ = {
-"_editor_description_": "A Led Zeppelin large enough to blot out the sun"
+"_editor_description_": "deployed a Led Zeppelin large enough to blot out the sun."
 }
 
 [node name="Day10" type="Node2D" parent="Paper/Choices/AllChoices"]
 __meta__ = {
-"_editor_description_": "Death of the first pet rock"
+"_editor_description_": "brought the curse of death upon the first pet rock of every household in New Egypt."
 }
 
 [node name="Day 1" parent="Paper/Choices" instance=ExtResource( 6 )]
+position = Vector2( 1.36035, 8.16223 )
+delay = 0
+next_day_path = NodePath("../../Sections/Day2")
+effect_path = NodePath("../../Paper/Effects/Day1Effect")
 
 [node name="Day 2" parent="Paper/Choices" instance=ExtResource( 6 )]
+position = Vector2( 4.42603, 292.527 )
+delay = 0
 correct_choice = NodePath("../AllChoices/Day2")
+next_day_path = NodePath("../../Sections/Day3")
 
 [node name="Day 3" parent="Paper/Choices" instance=ExtResource( 6 )]
+position = Vector2( 6.0625, 605.548 )
+delay = 0
 correct_choice = NodePath("../AllChoices/Day3")
+next_day_path = NodePath("../../Sections/Day4")
 
 [node name="Day 4" parent="Paper/Choices" instance=ExtResource( 6 )]
+position = Vector2( -1.15295, 905.775 )
+delay = 0
 correct_choice = NodePath("../AllChoices/Day4")
+next_day_path = NodePath("../../Sections/Day5")
 
 [node name="Day 5" parent="Paper/Choices" instance=ExtResource( 6 )]
+position = Vector2( 4.42603, 1237.17 )
+delay = 0
 correct_choice = NodePath("../AllChoices/Day5")
+next_day_path = NodePath("../../Sections/Day6")
 
 [node name="Day 6" parent="Paper/Choices" instance=ExtResource( 6 )]
+position = Vector2( 4.42603, 1561.35 )
+delay = 0
 correct_choice = NodePath("../AllChoices/Day6")
+next_day_path = NodePath("../../Sections/Day7")
 
 [node name="Day 7" parent="Paper/Choices" instance=ExtResource( 6 )]
+position = Vector2( 0, 1879.95 )
+delay = 0
 correct_choice = NodePath("../AllChoices/Day7")
+next_day_path = NodePath("../../Sections/Day8")
 
 [node name="Day 8" parent="Paper/Choices" instance=ExtResource( 6 )]
+position = Vector2( 8.85205, 2204.17 )
+delay = 0
 correct_choice = NodePath("../AllChoices/Day8")
+next_day_path = NodePath("../../Sections/Day9")
 
 [node name="Day 9" parent="Paper/Choices" instance=ExtResource( 6 )]
+position = Vector2( 8.85205, 2536.13 )
+delay = 0
 correct_choice = NodePath("../AllChoices/Day9")
+next_day_path = NodePath("../../Sections/Day10")
 
 [node name="Day 10" parent="Paper/Choices" instance=ExtResource( 6 )]
+position = Vector2( 17.7043, 2901.92 )
+delay = 0
 correct_choice = NodePath("../AllChoices/Day10")
+next_day_path = NodePath("../../Sections/End")
 
 [node name="Boundary" type="Node2D" parent="."]
 
 [node name="Top" type="StaticBody2D" parent="Boundary"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/Top"]
-position = Vector2( 645.208, -2147.47 )
-shape = SubResource( 5 )
+position = Vector2( 639.882, -4319.1 )
+shape = SubResource( 4 )
 
 [node name="Left" type="StaticBody2D" parent="Boundary"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/Left"]
-position = Vector2( -43.9521, 61.5331 )
-shape = SubResource( 6 )
+position = Vector2( -53.0278, 1350.3 )
+shape = SubResource( 5 )
 
 [node name="Bottom" type="StaticBody2D" parent="Boundary"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/Bottom"]
-position = Vector2( 614.334, 3670.15 )
-shape = SubResource( 7 )
+position = Vector2( 626.712, 5497.77 )
+shape = SubResource( 6 )
 
 [node name="Right" type="StaticBody2D" parent="Boundary"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/Right"]
-position = Vector2( 1328.9, 372.806 )
-shape = SubResource( 8 )
+position = Vector2( 1319.82, 1407.45 )
+shape = SubResource( 7 )
 
 [node name="mug" type="Sprite" parent="."]
 position = Vector2( 1267.86, 255.254 )
 texture = ExtResource( 4 )
+[connection signal="animation_finished" from="Paper/Paper/Effects/Day1Effect/AnimationPlayer" to="Paper/Paper/Effects/Day1Effect" method="_on_AnimationPlayer_animation_finished"]
