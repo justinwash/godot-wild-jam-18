@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Fonts/GochiHand-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Art/desk.png" type="Texture" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://Scripts/Section.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/Day.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Effects/Day1Effect.gd" type="Script" id=7]
+[ext_resource path="res://Art/pogobal.png" type="Texture" id=8]
+[ext_resource path="res://Effects/PogoBal.gd" type="Script" id=9]
+[ext_resource path="res://Effects/Day2Effect.gd" type="Script" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Popup"
@@ -26,13 +29,13 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 595.853, 2254.56 )
 
-[sub_resource type="Gradient" id=8]
+[sub_resource type="Gradient" id=3]
 offsets = PoolRealArray( 0.0877863, 1 )
 
-[sub_resource type="GradientTexture" id=9]
-gradient = SubResource( 8 )
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=5]
 resource_name = "Flow"
 length = 60.0
 tracks/0/type = "value"
@@ -72,20 +75,423 @@ tracks/2/keys = {
 "values": [ Vector2( 4.20105, 1445.13 ), Vector2( 3.5352, 1445.13 ), Vector2( 2.50815, 1445.13 ) ]
 }
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="CircleShape2D" id=12]
+radius = 72.0061
+
+[sub_resource type="Animation" id=6]
+resource_name = "Bounce"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 369.615, 1003.72 ), Vector2( 369.615, 960 ), Vector2( 369.615, 1002.79 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.414403 ), Vector2( 0.5, 0.5 ), Vector2( 0.5, 0.5 ), Vector2( 0.5, 0.414403 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "Bounce"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 369.615, 1003.72 ), Vector2( 369.615, 960 ), Vector2( 369.615, 1002.79 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.414403 ), Vector2( 0.5, 0.5 ), Vector2( 0.5, 0.5 ), Vector2( 0.5, 0.414403 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "Bounce"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 369.615, 1003.72 ), Vector2( 369.615, 960 ), Vector2( 369.615, 1002.79 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.414403 ), Vector2( 0.5, 0.5 ), Vector2( 0.5, 0.5 ), Vector2( 0.5, 0.414403 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "Bounce"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 369.615, 1003.72 ), Vector2( 369.615, 960 ), Vector2( 369.615, 1002.79 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.414403 ), Vector2( 0.5, 0.5 ), Vector2( 0.5, 0.5 ), Vector2( 0.5, 0.414403 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "Bounce"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 369.615, 1003.72 ), Vector2( 369.615, 960 ), Vector2( 369.615, 1002.79 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.414403 ), Vector2( 0.5, 0.5 ), Vector2( 0.5, 0.5 ), Vector2( 0.5, 0.414403 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "Bounce"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 369.615, 1003.72 ), Vector2( 369.615, 960 ), Vector2( 369.615, 1002.79 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.414403 ), Vector2( 0.5, 0.5 ), Vector2( 0.5, 0.5 ), Vector2( 0.5, 0.414403 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "Bounce"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 369.615, 1003.72 ), Vector2( 369.615, 960 ), Vector2( 369.615, 1002.79 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.414403 ), Vector2( 0.5, 0.5 ), Vector2( 0.5, 0.5 ), Vector2( 0.5, 0.414403 ) ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "Bounce"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 369.615, 1003.72 ), Vector2( 369.615, 960 ), Vector2( 369.615, 1002.79 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.414403 ), Vector2( 0.5, 0.5 ), Vector2( 0.5, 0.5 ), Vector2( 0.5, 0.414403 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "Bounce"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 369.615, 1003.72 ), Vector2( 369.615, 960 ), Vector2( 369.615, 1002.79 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.414403 ), Vector2( 0.5, 0.5 ), Vector2( 0.5, 0.5 ), Vector2( 0.5, 0.414403 ) ]
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "Bounce"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 369.615, 1003.72 ), Vector2( 369.615, 960 ), Vector2( 369.615, 1002.79 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.414403 ), Vector2( 0.5, 0.5 ), Vector2( 0.5, 0.5 ), Vector2( 0.5, 0.414403 ) ]
+}
+
+[sub_resource type="DynamicFont" id=7]
 size = 30
 font_data = ExtResource( 1 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 703.063, 30.9232 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 43.9186, 3572.09 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 711.118, 29.3022 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 42.613, 3695.15 )
 
 [node name="Game" type="Node2D"]
@@ -148,7 +554,7 @@ polygon = PoolVector2Array( 2715.74, -1048.73, 2654.01, -616.598, 2641.66, -73.3
 position = Vector2( 634.599, 1509.08 )
 rotation = -1.57261
 scale = Vector2( 4.20105, 1445.13 )
-texture = SubResource( 9 )
+texture = SubResource( 4 )
 color = Color( 0, 0, 0, 1 )
 energy = 0.0
 mode = 3
@@ -156,7 +562,290 @@ range_item_cull_mask = 2
 shadow_item_cull_mask = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Paper/Paper/Effects/Day1Effect"]
-anims/Flow = SubResource( 10 )
+anims/Flow = SubResource( 5 )
+
+[node name="Day2Effect" type="Node2D" parent="Paper/Paper/Effects"]
+script = ExtResource( 10 )
+
+[node name="PogoBal" type="KinematicBody2D" parent="Paper/Paper/Effects/Day2Effect"]
+visible = false
+position = Vector2( -373.12, -232.868 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 1
+script = ExtResource( 9 )
+speed = 150
+dir = Vector2( 2, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paper/Paper/Effects/Day2Effect/PogoBal"]
+position = Vector2( 363.972, 1001.51 )
+shape = SubResource( 12 )
+disabled = true
+
+[node name="Sprite2" type="Sprite" parent="Paper/Paper/Effects/Day2Effect/PogoBal"]
+modulate = Color( 0, 0, 0, 0.352941 )
+position = Vector2( 356.254, 1015.21 )
+scale = Vector2( 0.491649, 0.440006 )
+texture = ExtResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="Paper/Paper/Effects/Day2Effect/PogoBal"]
+position = Vector2( 369.615, 1002.79 )
+scale = Vector2( 0.5, 0.414403 )
+texture = ExtResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Paper/Paper/Effects/Day2Effect/PogoBal"]
+anims/Bounce = SubResource( 6 )
+
+[node name="PogoBal2" type="KinematicBody2D" parent="Paper/Paper/Effects/Day2Effect"]
+visible = false
+position = Vector2( -423.651, 547.262 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 1
+script = ExtResource( 9 )
+speed = 150
+dir = Vector2( 2, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paper/Paper/Effects/Day2Effect/PogoBal2"]
+position = Vector2( 363.972, 1001.51 )
+shape = SubResource( 12 )
+disabled = true
+
+[node name="Sprite2" type="Sprite" parent="Paper/Paper/Effects/Day2Effect/PogoBal2"]
+modulate = Color( 0, 0, 0, 0.352941 )
+position = Vector2( 356.254, 1015.21 )
+scale = Vector2( 0.491649, 0.440006 )
+texture = ExtResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="Paper/Paper/Effects/Day2Effect/PogoBal2"]
+position = Vector2( 369.615, 1002.79 )
+scale = Vector2( 0.5, 0.414403 )
+texture = ExtResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Paper/Paper/Effects/Day2Effect/PogoBal2"]
+anims/Bounce = SubResource( 13 )
+
+[node name="PogoBal3" type="KinematicBody2D" parent="Paper/Paper/Effects/Day2Effect"]
+visible = false
+position = Vector2( -413.065, 1408.88 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 1
+script = ExtResource( 9 )
+speed = 150
+dir = Vector2( 2, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paper/Paper/Effects/Day2Effect/PogoBal3"]
+position = Vector2( 363.972, 1001.51 )
+shape = SubResource( 12 )
+disabled = true
+
+[node name="Sprite2" type="Sprite" parent="Paper/Paper/Effects/Day2Effect/PogoBal3"]
+modulate = Color( 0, 0, 0, 0.352941 )
+position = Vector2( 356.254, 1015.21 )
+scale = Vector2( 0.491649, 0.440006 )
+texture = ExtResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="Paper/Paper/Effects/Day2Effect/PogoBal3"]
+position = Vector2( 369.615, 1002.79 )
+scale = Vector2( 0.5, 0.414403 )
+texture = ExtResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Paper/Paper/Effects/Day2Effect/PogoBal3"]
+anims/Bounce = SubResource( 14 )
+
+[node name="PogoBal4" type="KinematicBody2D" parent="Paper/Paper/Effects/Day2Effect"]
+visible = false
+position = Vector2( 1312.57, 94.6825 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 1
+script = ExtResource( 9 )
+speed = 150
+dir = Vector2( -2, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paper/Paper/Effects/Day2Effect/PogoBal4"]
+position = Vector2( 363.972, 1001.51 )
+shape = SubResource( 12 )
+disabled = true
+
+[node name="Sprite2" type="Sprite" parent="Paper/Paper/Effects/Day2Effect/PogoBal4"]
+modulate = Color( 0, 0, 0, 0.352941 )
+position = Vector2( 356.254, 1015.21 )
+scale = Vector2( 0.491649, 0.440006 )
+texture = ExtResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="Paper/Paper/Effects/Day2Effect/PogoBal4"]
+position = Vector2( 369.615, 1002.79 )
+scale = Vector2( 0.5, 0.414403 )
+texture = ExtResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Paper/Paper/Effects/Day2Effect/PogoBal4"]
+anims/Bounce = SubResource( 15 )
+
+[node name="PogoBal5" type="KinematicBody2D" parent="Paper/Paper/Effects/Day2Effect"]
+visible = false
+position = Vector2( 1312.57, 1085.32 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 1
+script = ExtResource( 9 )
+speed = 150
+dir = Vector2( -2, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paper/Paper/Effects/Day2Effect/PogoBal5"]
+position = Vector2( 363.972, 1001.51 )
+shape = SubResource( 12 )
+disabled = true
+
+[node name="Sprite2" type="Sprite" parent="Paper/Paper/Effects/Day2Effect/PogoBal5"]
+modulate = Color( 0, 0, 0, 0.352941 )
+position = Vector2( 356.254, 1015.21 )
+scale = Vector2( 0.491649, 0.440006 )
+texture = ExtResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="Paper/Paper/Effects/Day2Effect/PogoBal5"]
+position = Vector2( 369.615, 1002.79 )
+scale = Vector2( 0.5, 0.414403 )
+texture = ExtResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Paper/Paper/Effects/Day2Effect/PogoBal5"]
+anims/Bounce = SubResource( 16 )
+
+[node name="PogoBal6" type="KinematicBody2D" parent="Paper/Paper/Effects/Day2Effect"]
+visible = false
+position = Vector2( 1268.53, 2118.07 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 1
+script = ExtResource( 9 )
+speed = 150
+dir = Vector2( -2, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paper/Paper/Effects/Day2Effect/PogoBal6"]
+position = Vector2( 363.972, 1001.51 )
+shape = SubResource( 12 )
+disabled = true
+
+[node name="Sprite2" type="Sprite" parent="Paper/Paper/Effects/Day2Effect/PogoBal6"]
+modulate = Color( 0, 0, 0, 0.352941 )
+position = Vector2( 356.254, 1015.21 )
+scale = Vector2( 0.491649, 0.440006 )
+texture = ExtResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="Paper/Paper/Effects/Day2Effect/PogoBal6"]
+position = Vector2( 369.615, 1002.79 )
+scale = Vector2( 0.5, 0.414403 )
+texture = ExtResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Paper/Paper/Effects/Day2Effect/PogoBal6"]
+anims/Bounce = SubResource( 17 )
+
+[node name="PogoBal7" type="KinematicBody2D" parent="Paper/Paper/Effects/Day2Effect"]
+visible = false
+position = Vector2( -436.04, 2272.51 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 1
+script = ExtResource( 9 )
+speed = 150
+dir = Vector2( 2, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paper/Paper/Effects/Day2Effect/PogoBal7"]
+position = Vector2( 363.972, 1001.51 )
+shape = SubResource( 12 )
+disabled = true
+
+[node name="Sprite2" type="Sprite" parent="Paper/Paper/Effects/Day2Effect/PogoBal7"]
+modulate = Color( 0, 0, 0, 0.352941 )
+position = Vector2( 356.254, 1015.21 )
+scale = Vector2( 0.491649, 0.440006 )
+texture = ExtResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="Paper/Paper/Effects/Day2Effect/PogoBal7"]
+position = Vector2( 369.615, 1002.79 )
+scale = Vector2( 0.5, 0.414403 )
+texture = ExtResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Paper/Paper/Effects/Day2Effect/PogoBal7"]
+anims/Bounce = SubResource( 18 )
+
+[node name="PogoBal8" type="KinematicBody2D" parent="Paper/Paper/Effects/Day2Effect"]
+visible = false
+position = Vector2( 1291.41, 3033.28 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 1
+script = ExtResource( 9 )
+speed = 150
+dir = Vector2( -2, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paper/Paper/Effects/Day2Effect/PogoBal8"]
+position = Vector2( 363.972, 1001.51 )
+shape = SubResource( 12 )
+disabled = true
+
+[node name="Sprite2" type="Sprite" parent="Paper/Paper/Effects/Day2Effect/PogoBal8"]
+modulate = Color( 0, 0, 0, 0.352941 )
+position = Vector2( 356.254, 1015.21 )
+scale = Vector2( 0.491649, 0.440006 )
+texture = ExtResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="Paper/Paper/Effects/Day2Effect/PogoBal8"]
+position = Vector2( 369.615, 1002.79 )
+scale = Vector2( 0.5, 0.414403 )
+texture = ExtResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Paper/Paper/Effects/Day2Effect/PogoBal8"]
+anims/Bounce = SubResource( 19 )
+
+[node name="PogoBal9" type="KinematicBody2D" parent="Paper/Paper/Effects/Day2Effect"]
+visible = false
+position = Vector2( -436.04, 3260.44 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 1
+script = ExtResource( 9 )
+speed = 150
+dir = Vector2( 2, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paper/Paper/Effects/Day2Effect/PogoBal9"]
+position = Vector2( 363.972, 1001.51 )
+shape = SubResource( 12 )
+disabled = true
+
+[node name="Sprite2" type="Sprite" parent="Paper/Paper/Effects/Day2Effect/PogoBal9"]
+modulate = Color( 0, 0, 0, 0.352941 )
+position = Vector2( 356.254, 1015.21 )
+scale = Vector2( 0.491649, 0.440006 )
+texture = ExtResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="Paper/Paper/Effects/Day2Effect/PogoBal9"]
+position = Vector2( 369.615, 1002.79 )
+scale = Vector2( 0.5, 0.414403 )
+texture = ExtResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Paper/Paper/Effects/Day2Effect/PogoBal9"]
+anims/Bounce = SubResource( 20 )
+
+[node name="PogoBal10" type="KinematicBody2D" parent="Paper/Paper/Effects/Day2Effect"]
+visible = false
+position = Vector2( -9572.02, 5049.35 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 1
+script = ExtResource( 9 )
+speed = 150
+dir = Vector2( -2, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paper/Paper/Effects/Day2Effect/PogoBal10"]
+position = Vector2( 363.972, 1001.51 )
+shape = SubResource( 12 )
+disabled = true
+
+[node name="Sprite2" type="Sprite" parent="Paper/Paper/Effects/Day2Effect/PogoBal10"]
+modulate = Color( 0, 0, 0, 0.352941 )
+position = Vector2( 356.254, 1015.21 )
+scale = Vector2( 0.491649, 0.440006 )
+texture = ExtResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="Paper/Paper/Effects/Day2Effect/PogoBal10"]
+position = Vector2( 369.615, 1002.79 )
+scale = Vector2( 0.5, 0.414403 )
+texture = ExtResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Paper/Paper/Effects/Day2Effect/PogoBal10"]
+anims/Bounce = SubResource( 21 )
 
 [node name="Sections" type="Node2D" parent="Paper"]
 
@@ -165,7 +854,7 @@ margin_left = 294.0
 margin_top = 201.0
 margin_right = 995.0
 margin_bottom = 576.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
 text = "02/17/2020
 American History
@@ -187,7 +876,7 @@ margin_left = 293.272
 margin_top = 566.919
 margin_right = 994.272
 margin_bottom = 731.919
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
 text = "    Among the dissenters was a man named Mos Es, who possessed a cane that held immense power. Using this power to convince Phar Out to let his bretheren go seemed his only choice, so on the first day, he..."
 autowrap = true
@@ -206,7 +895,7 @@ margin_left = 291.64
 margin_top = 936.117
 margin_right = 992.64
 margin_bottom = 984.117
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
 text = "   Phar Out refused to back down, so on the 2nd day he..."
 autowrap = true
@@ -223,7 +912,7 @@ margin_left = 287.068
 margin_top = 1235.77
 margin_right = 988.068
 margin_bottom = 1312.77
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
 text = "    Par Out and his gang got pretty good at doing crime while bouncing on PogoBalls, so on the 3rd day he..."
 autowrap = true
@@ -240,7 +929,7 @@ margin_left = 282.436
 margin_top = 1543.71
 margin_right = 983.436
 margin_bottom = 1591.71
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
 text = "    Having stolen a pallette of medicinal shampoo, gang operations continued as normal, so on the 4th day he..."
 autowrap = true
@@ -257,7 +946,7 @@ margin_left = 288.154
 margin_top = 1845.01
 margin_right = 989.154
 margin_bottom = 1962.01
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
 text = "    Mos Es decided that his actions so far had not been drastic enough, so to put a more serious damper on the gang's oprations, on the 5th day he..."
 autowrap = true
@@ -274,7 +963,7 @@ margin_left = 288.154
 margin_top = 2175.52
 margin_right = 989.154
 margin_bottom = 2223.52
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
 text = "    As it turned out, public transit in New Egypt was more convenient than Mos Es had thought, so, feeling somewhat defeated, on the 6th day he..."
 autowrap = true
@@ -291,7 +980,7 @@ margin_left = 297.006
 margin_top = 2489.77
 margin_right = 998.006
 margin_bottom = 2537.77
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
 text = "    The gang members and Phar Out himself were forced to adobt much more rigorous hygene standards, but still weren't backing down, so on the 7th day he..."
 autowrap = true
@@ -308,7 +997,7 @@ margin_left = 289.681
 margin_top = 2820.59
 margin_right = 990.681
 margin_bottom = 2937.59
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
 text = "   That terrible terrible song annoyed the citizens of New Egypt enough to cause a signifant uptick in earplug sales. On the next day Mos Es..."
 autowrap = true
@@ -325,7 +1014,7 @@ margin_left = 288.154
 margin_top = 3158.1
 margin_right = 989.154
 margin_bottom = 3206.1
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
 text = "    The beast devoured and devoured and devoured, but carrots weren't exactly a staple of the gang's diet, so on the 9th day he..."
 autowrap = true
@@ -342,7 +1031,7 @@ margin_left = 281.153
 margin_top = 3466.0
 margin_right = 982.153
 margin_bottom = 3514.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
 text = "    New Egypt was plunged into darkness. This caused a massive strain on the gang members' cell-phone batteries, which they used to light their way through the long night. On the 10th day, Mos Es..."
 autowrap = true
@@ -359,7 +1048,7 @@ margin_left = 288.0
 margin_top = 3831.0
 margin_right = 989.0
 margin_bottom = 4253.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
 text = "    With the death of his own first-bought pet rock, Phar Out mourned.
 	
@@ -377,7 +1066,7 @@ margin_left = 293.021
 margin_top = 4455.98
 margin_right = 994.021
 margin_bottom = 4508.98
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
 text = "Thank you for playing!"
 align = 1
@@ -454,6 +1143,7 @@ position = Vector2( 4.42603, 292.527 )
 delay = 0
 correct_choice = NodePath("../AllChoices/Day2")
 next_day_path = NodePath("../../Sections/Day3")
+effect_path = NodePath("../../Paper/Effects/Day2Effect")
 
 [node name="Day 3" parent="Paper/Choices" instance=ExtResource( 6 )]
 position = Vector2( 6.0625, 605.548 )
@@ -509,25 +1199,25 @@ next_day_path = NodePath("../../Sections/End")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/Top"]
 position = Vector2( 639.882, -4319.1 )
-shape = SubResource( 4 )
+shape = SubResource( 8 )
 
 [node name="Left" type="StaticBody2D" parent="Boundary"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/Left"]
 position = Vector2( -53.0278, 1350.3 )
-shape = SubResource( 5 )
+shape = SubResource( 9 )
 
 [node name="Bottom" type="StaticBody2D" parent="Boundary"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/Bottom"]
 position = Vector2( 626.712, 5497.77 )
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="Right" type="StaticBody2D" parent="Boundary"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/Right"]
 position = Vector2( 1319.82, 1407.45 )
-shape = SubResource( 7 )
+shape = SubResource( 11 )
 
 [node name="mug" type="Sprite" parent="."]
 position = Vector2( 1267.86, 255.254 )
