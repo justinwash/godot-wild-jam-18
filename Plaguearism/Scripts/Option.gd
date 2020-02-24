@@ -21,6 +21,10 @@ func _physics_process(delta):
 func _on_click():
 	day.option_clicked = true
 	selected = true
+	
+	if day.effect != null:
+			day.effect.active = true
+			
 	if (day.correct_choice_text == self.text):
 		print("correct!")
 		day.score.correct += 1
@@ -29,8 +33,6 @@ func _on_click():
 			if child != self:
 				child.free()
 	else:
-		if day.effect != null:
-			day.effect.active = true
 		print("wrong!")
 		add_color_override("font_color", incorrect_color)
 		for child in get_parent().get_children():
