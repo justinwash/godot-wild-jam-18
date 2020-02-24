@@ -28,6 +28,9 @@ onready var next_day = get_node(next_day_path)
 export(NodePath) var effect_path
 onready var effect = get_node(effect_path)
 
+export(NodePath) var score_path
+onready var score = get_node(score_path)
+
 var labels = []
 var highlighted_label
 var t = 0

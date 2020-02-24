@@ -23,6 +23,7 @@ func _on_click():
 	selected = true
 	if (day.correct_choice_text == self.text):
 		print("correct!")
+		day.score.correct += 1
 		add_color_override("font_color", correct_color)
 		for child in get_parent().get_children():
 			if child != self:

@@ -1,0 +1,208 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Fonts/GochiHand-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Art/desk.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Paper.gd" type="Script" id=3]
+[ext_resource path="res://Art/mug.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Section.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/StartButton.gd" type="Script" id=6]
+[ext_resource path="res://Fonts/Lacquer-Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Fonts/ChildWriting-Regular.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Art/plague.png" type="Texture" id=9]
+[ext_resource path="res://Art/80s.png" type="Texture" id=10]
+[ext_resource path="res://Art/jam.png" type="Texture" id=11]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Popup"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 2, 0.138696 ),
+"update": 0,
+"values": [ Vector2( 0, 800 ), Vector2( 0, -40 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 595.853, 2254.56 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 120
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 42
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 20
+font_data = ExtResource( 7 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 703.063, 30.9232 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 43.9186, 3572.09 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 711.118, 29.3022 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 42.613, 3695.15 )
+
+[node name="Game" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 633.982, 359.996 )
+rotation = 0.174533
+rotating = true
+current = true
+
+[node name="desk" type="Sprite" parent="."]
+position = Vector2( 577.571, 395.858 )
+texture = ExtResource( 2 )
+
+[node name="Paper" type="KinematicBody2D" parent="."]
+position = Vector2( 0, 800 )
+script = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Paper"]
+anims/Popup = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paper"]
+position = Vector2( 639.731, 2353.12 )
+shape = SubResource( 2 )
+
+[node name="Paper" type="ColorRect" parent="Paper"]
+margin_left = 274.0
+margin_top = 182.0
+margin_right = 1015.0
+margin_bottom = 4527.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Shadow" type="ColorRect" parent="Paper/Paper"]
+show_behind_parent = true
+margin_left = -16.0
+margin_top = 16.0
+margin_right = 720.0
+margin_bottom = 4372.0
+color = Color( 0.243137, 0.243137, 0.243137, 0.407843 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sections" type="Node2D" parent="Paper"]
+
+[node name="Intro" type="Label" parent="Paper/Sections"]
+margin_left = 333.323
+margin_top = 328.825
+margin_right = 1034.32
+margin_bottom = 703.825
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+text = "Plaguearism"
+autowrap = true
+percent_visible = -0.0909091
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+active = true
+slow = 0.1
+
+[node name="Subtext" type="Label" parent="Paper/Sections"]
+margin_left = 294.0
+margin_top = 471.711
+margin_right = 995.0
+margin_bottom = 846.711
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
+text = "Test your knowledge of the 1983 Plagues of New Egypt, New Jersey"
+align = 1
+autowrap = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+active = true
+slow = 0.1
+
+[node name="Choices" type="Node2D" parent="Paper"]
+
+[node name="Click to start" type="Node2D" parent="Paper/Choices"]
+position = Vector2( -6.62866, -159.608 )
+
+[node name="1" type="Label" parent="Paper/Choices/Click to start"]
+margin_left = 300.211
+margin_top = 765.164
+margin_right = 1001.21
+margin_bottom = 824.164
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 0.580392, 1, 1 )
+text = "CLICK TO START"
+align = 1
+autowrap = true
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ClickArea" type="TextureButton" parent="Paper/Choices/Click to start/1"]
+margin_left = 2.45544
+margin_top = -17.1885
+margin_right = 713.455
+margin_bottom = 42.8115
+mouse_default_cursor_shape = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="plague" type="Sprite" parent="Paper"]
+position = Vector2( 441.22, -26.9164 )
+scale = Vector2( 0.468171, 0.468171 )
+texture = ExtResource( 9 )
+
+[node name="80s" type="Sprite" parent="Paper/plague"]
+position = Vector2( -0.626343, 264.457 )
+scale = Vector2( 0.23946, 0.23946 )
+texture = ExtResource( 10 )
+
+[node name="jam" type="Sprite" parent="Paper/plague"]
+position = Vector2( 663.283, 157.695 )
+texture = ExtResource( 11 )
+
+[node name="Boundary" type="Node2D" parent="."]
+
+[node name="Top" type="StaticBody2D" parent="Boundary"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/Top"]
+position = Vector2( 639.882, -4319.1 )
+shape = SubResource( 4 )
+
+[node name="Left" type="StaticBody2D" parent="Boundary"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/Left"]
+position = Vector2( -53.0278, 1350.3 )
+shape = SubResource( 5 )
+
+[node name="Bottom" type="StaticBody2D" parent="Boundary"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/Bottom"]
+position = Vector2( 626.712, 5497.77 )
+shape = SubResource( 6 )
+
+[node name="Right" type="StaticBody2D" parent="Boundary"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/Right"]
+position = Vector2( 1319.82, 1407.45 )
+shape = SubResource( 7 )
+
+[node name="mug" type="Sprite" parent="."]
+position = Vector2( 1267.86, 255.254 )
+texture = ExtResource( 4 )
