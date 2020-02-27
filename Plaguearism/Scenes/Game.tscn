@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Fonts/GochiHand-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Art/desk.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Scripts/QuitButton.gd" type="Script" id=12]
 [ext_resource path="res://Fonts/Lacquer-Regular.ttf" type="DynamicFontData" id=13]
 [ext_resource path="res://Scripts/Score.gd" type="Script" id=14]
+[ext_resource path="res://Scenes/BackgroundMusic.tscn" type="PackedScene" id=15]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Popup"
@@ -485,24 +486,24 @@ tracks/2/keys = {
 size = 30
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=23]
+[sub_resource type="DynamicFont" id=18]
 size = 24
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=22]
+[sub_resource type="DynamicFont" id=19]
 size = 20
 font_data = ExtResource( 13 )
 
-[sub_resource type="RectangleShape2D" id=18]
+[sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 703.063, 30.9232 )
 
-[sub_resource type="RectangleShape2D" id=19]
+[sub_resource type="RectangleShape2D" id=21]
 extents = Vector2( 43.9186, 3572.09 )
 
-[sub_resource type="RectangleShape2D" id=20]
+[sub_resource type="RectangleShape2D" id=22]
 extents = Vector2( 711.118, 29.3022 )
 
-[sub_resource type="RectangleShape2D" id=21]
+[sub_resource type="RectangleShape2D" id=23]
 extents = Vector2( 42.613, 3695.15 )
 
 [node name="Game" type="Node2D"]
@@ -1081,7 +1082,7 @@ margin_left = 509.942
 margin_top = 4405.9
 margin_right = 779.942
 margin_bottom = 4434.9
-custom_fonts/font = SubResource( 23 )
+custom_fonts/font = SubResource( 18 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "You got 0 correct out of 10!"
 script = ExtResource( 14 )
@@ -1113,7 +1114,7 @@ margin_left = -321.478
 margin_top = 92.6249
 margin_right = 379.521
 margin_bottom = 151.625
-custom_fonts/font = SubResource( 22 )
+custom_fonts/font = SubResource( 19 )
 custom_colors/font_color = Color( 0, 0.580392, 1, 1 )
 text = "QUIT?"
 align = 1
@@ -1264,29 +1265,31 @@ score_path = NodePath("../../Sections/Score")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/Top"]
 position = Vector2( 639.882, -4319.1 )
-shape = SubResource( 18 )
+shape = SubResource( 20 )
 
 [node name="Left" type="StaticBody2D" parent="Boundary"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/Left"]
 position = Vector2( -53.0278, 1350.3 )
-shape = SubResource( 19 )
+shape = SubResource( 21 )
 
 [node name="Bottom" type="StaticBody2D" parent="Boundary"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/Bottom"]
 position = Vector2( 626.712, 5497.77 )
-shape = SubResource( 20 )
+shape = SubResource( 22 )
 
 [node name="Right" type="StaticBody2D" parent="Boundary"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/Right"]
 position = Vector2( 1319.82, 1407.45 )
-shape = SubResource( 21 )
+shape = SubResource( 23 )
 
 [node name="mug" type="Sprite" parent="."]
 position = Vector2( 1267.86, 255.254 )
 texture = ExtResource( 4 )
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource( 15 )]
 [connection signal="animation_finished" from="Paper/Paper/Effects/Day1Effect/AnimationPlayer" to="Paper/Paper/Effects/Day1Effect" method="_on_AnimationPlayer_animation_finished"]
 
 [editable path="Paper/Sections/Try again?"]

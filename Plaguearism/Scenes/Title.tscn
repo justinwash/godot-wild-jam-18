@@ -34,24 +34,24 @@ extents = Vector2( 595.853, 2254.56 )
 size = 120
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=4]
 size = 42
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=5]
 size = 20
 font_data = ExtResource( 7 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 703.063, 30.9232 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 43.9186, 3572.09 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 711.118, 29.3022 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 42.613, 3695.15 )
 
 [node name="Game" type="Node2D"]
@@ -108,7 +108,6 @@ custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
 text = "Plaguearism"
 autowrap = true
-percent_visible = -0.0909091
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -121,7 +120,7 @@ margin_left = 294.0
 margin_top = 471.711
 margin_right = 995.0
 margin_bottom = 846.711
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.145098, 1 )
 text = "Test your knowledge of the 1983 Plagues of New Egypt, New Jersey"
 align = 1
@@ -143,7 +142,7 @@ margin_left = 300.211
 margin_top = 765.164
 margin_right = 1001.21
 margin_bottom = 824.164
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0.580392, 1, 1 )
 text = "CLICK TO START"
 align = 1
@@ -183,25 +182,25 @@ texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/Top"]
 position = Vector2( 639.882, -4319.1 )
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 
 [node name="Left" type="StaticBody2D" parent="Boundary"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/Left"]
 position = Vector2( -53.0278, 1350.3 )
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 
 [node name="Bottom" type="StaticBody2D" parent="Boundary"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/Bottom"]
 position = Vector2( 626.712, 5497.77 )
-shape = SubResource( 6 )
+shape = SubResource( 8 )
 
 [node name="Right" type="StaticBody2D" parent="Boundary"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/Right"]
 position = Vector2( 1319.82, 1407.45 )
-shape = SubResource( 7 )
+shape = SubResource( 9 )
 
 [node name="mug" type="Sprite" parent="."]
 position = Vector2( 1267.86, 255.254 )
